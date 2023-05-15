@@ -137,21 +137,6 @@ import { select, on } from "./common.js";
   }
 
   /**
-   * Porfolio isotope and filter
-   */
-  window.addEventListener('load', () => {
-    portfolio.createPortfolioSection();
-    /**
-    * Initiate portfolio lightbox 
-    */
-    const portfolioLightbox = GLightbox({
-      selector: '.portfolio-lightbox'
-    });
-  });
-
-  
-
-  /**
    * Portfolio details slider
    */
   var swiper = new Swiper('.portfolio-details-slider', {
@@ -207,6 +192,17 @@ import { select, on } from "./common.js";
       once: true,
       mirror: false
     })
+
+    const urlParams = new URLSearchParams(window.location.search);
+const title = urlParams.get('title');
+console.log(title); // Outputs the value of the 'title' parameter
+
+const projectDetails = document.querySelector(".portfolio-info ul");
+const projectNameItem = document.createElement("li");
+projectNameItem.innerHTML = `<strong>Project Name</strong>: ${title}`;
+projectDetails.insertBefore(projectNameItem, projectDetails.firstChild);
+
+
   });
 
   /**
