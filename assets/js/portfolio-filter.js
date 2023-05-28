@@ -1,11 +1,21 @@
 import { select, on } from "./common.js";
 
-
-
-
 export function createPortfolioSection() {
+	// Get the paragraph element inside the Portfolio section
+	customizePorfolioDescription();
 	createPortfolioItems();
 	createPortfolioFilters();
+    const portfolioLightbox = GLightbox({
+		selector: '.portfolio-lightbox'
+	  });
+}
+
+function customizePorfolioDescription() {
+	const portfolioSection = document.querySelector('#portfolio');
+	const paragraphElement = portfolioSection.querySelector('.section-title p');
+
+	// Update the content of the paragraph element
+	paragraphElement.textContent = 'Your custom content goes here';
 }
 
 function createPortfolioFilters() {
@@ -49,15 +59,14 @@ function createPortfolioFilters() {
 
 		}, true);
 
-		const something = document.querySelector('.portfolio-container aos-init aos-animate');
-		// setTimeout(() => {
-		// 	portfolioIsotope.arrange({
-		// 	});
-		// 	portfolioIsotope.on('arrangeComplete', function () {
-		// 		AOS.refresh();
-		// 	});
-		// console.log('Animation ended!');
-		// }, 50);
+		setTimeout(() => {
+			portfolioIsotope.arrange({
+			});
+			portfolioIsotope.on('arrangeComplete', function () {
+				AOS.refresh();
+			});
+		console.log('Animation ended!');
+		}, 50);
 	}
 }
 
@@ -102,12 +111,9 @@ export function createPortfolioItem(container, template, imgSrc, title) {
 function createPortfolioItems() {
 	const container = document.querySelector(".portfolio-container");
 	let template = container.querySelector('[class*="col-lg-4 col-md-6 portfolio-item"]');
-	// template.style.visibility = "hidden";
-	// element.style.visibility = "hidden";
 	createPortfolioItem(container, template, "assets/img/portfolio/portfolio-2.jpg", "App 10");
 	createPortfolioItem(container, template, "assets/img/portfolio/portfolio-2.jpg", "App 11");
 	createPortfolioItem(container, template, "assets/img/portfolio/portfolio-2.jpg", "App 12");
-	// template.style.visibility = "hidden";
 	template.style.display = "none";
 	template.remove();
 }

@@ -7,6 +7,12 @@
 */
 import * as portfolio from './portfolio-filter.js';
 import { select, on } from "./common.js";
+import { updateHomeSection } from "./home.js";
+import { customizeAbout } from "./about.js";
+import { customizeHeader } from "./header.js";
+import { customizeSkills } from "./skill.js";
+import { customizeResume } from "./resume.js";
+import { customizeContactSections } from "./contact.js";
 
 (function () {
   "use strict";
@@ -104,52 +110,16 @@ import { select, on } from "./common.js";
   });
 
   /**
-   * Hero type effect
-   */
-  const typed = select('.typed')
-  if (typed) {
-    let typed_strings = typed.getAttribute('data-typed-items')
-    typed_strings = typed_strings.split(',')
-    new Typed('.typed', {
-      strings: typed_strings,
-      loop: true,
-      typeSpeed: 100,
-      backSpeed: 50,
-      backDelay: 2000
-    });
-  }
-
-  /**
-   * Skills animation
-   */
-  let skilsContent = select('.skills-content');
-  if (skilsContent) {
-    new Waypoint({
-      element: skilsContent,
-      offset: '80%',
-      handler: function (direction) {
-        let progress = select('.progress .progress-bar', true);
-        progress.forEach((el) => {
-          el.style.width = el.getAttribute('aria-valuenow') + '%'
-        });
-      }
-    })
-  }
-
-  /**
    * Porfolio isotope and filter
    */
   window.addEventListener('load', () => {
     portfolio.createPortfolioSection();
-    /**
-    * Initiate portfolio lightbox 
-    */
-    const portfolioLightbox = GLightbox({
-      selector: '.portfolio-lightbox'
-    });
+    updateHomeSection();
+    customizeHeader();
+    customizeSkills();
+    customizeResume();
+    customizeContactSections();
   });
-
-  
 
   /**
    * Portfolio details slider

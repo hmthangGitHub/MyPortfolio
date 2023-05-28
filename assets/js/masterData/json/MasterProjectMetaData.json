@@ -1,0 +1,26 @@
+[
+  {
+    "master_project_meta_data_id": "101001",
+    "master_project_id": "100001",
+    "master_project_meta_data_type": "Thumbnail",
+    "value": "assets\\img\\portfolio\\portfolio-1.jpg"
+  },
+  {
+    "master_project_meta_data_id": "101002",
+    "master_project_id": "100001",
+    "master_project_meta_data_type": "ScreenShot",
+    "value": "assets\\img\\portfolio\\portfolio-1.jpg"
+  },
+  {
+    "master_project_meta_data_id": "101003",
+    "master_project_id": "100001",
+    "master_project_meta_data_type": "Video",
+    "value": "ZIMepIz5ES0"
+  },
+  {
+    "master_project_meta_data_id": "101003",
+    "master_project_id": "100001",
+    "master_project_meta_data_type": "ScreenShot",
+    "value": "assets\\img\\portfolio\\portfolio-1.jpg"
+  }
+]

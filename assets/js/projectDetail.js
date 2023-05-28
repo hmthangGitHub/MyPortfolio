@@ -7,6 +7,8 @@
 */
 import * as portfolio from './portfolio-filter.js';
 import { select, on } from "./common.js";
+import { customizeHeader } from "./header.js";
+import { loadProjectInfomationAsync } from './loadProjectInfomationAsync.js';
 
 (function () {
   "use strict";
@@ -143,8 +145,8 @@ import { select, on } from "./common.js";
     speed: 400,
     loop: true,
     autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
+      delay: 50000,
+      disableOnInteraction: true
     },
     pagination: {
       el: '.swiper-pagination',
@@ -194,20 +196,17 @@ import { select, on } from "./common.js";
     })
 
     const urlParams = new URLSearchParams(window.location.search);
-const title = urlParams.get('title');
-console.log(title); // Outputs the value of the 'title' parameter
+    const title = urlParams.get('title');
+    console.log(title); // Outputs the value of the 'title' parameter
 
-const projectDetails = document.querySelector(".portfolio-info ul");
-const projectNameItem = document.createElement("li");
-projectNameItem.innerHTML = `<strong>Project Name</strong>: ${title}`;
-projectDetails.insertBefore(projectNameItem, projectDetails.firstChild);
-
-
+    loadProjectInfomationAsync(title);
   });
 
   /**
    * Initiate Pure Counter 
    */
   new PureCounter();
-
+  customizeHeader();
 })()
+
+

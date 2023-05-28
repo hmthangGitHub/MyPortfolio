@@ -1,0 +1,12 @@
+export function customizeResume() {
+    const newDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Mauris ullamcorper aliquet nisl, in sagittis velit ultricies non. Donec vitae pharetra nulla, ac feugiat enim. Nam ullamcorper, neque vitae egestas tempor, justo diam congue lectus, et bibendum nulla risus in nisl.";
+    customizeResumeDescription(newDescription);
+}
+
+function customizeResumeDescription(description) {
+  const resumeSection = document.querySelector("#resume");
+  const descriptionElement = resumeSection.querySelector(".section-title p");
+  descriptionElement.textContent = description;
+}
+
+
