@@ -1,13 +1,13 @@
 import { MasterLoader } from './masterData/MasterLoader.js';
-import { MasterProjectMetaDataTypes } from './masterData/Enum.js';
+import { MasterProjectMetaDataType } from './masterData/Enum.js';
 
-export async function loadProjectInfomationAsync(title) {
+export async function loadProjectInfomationAsync(masterProjectId) {
   const portfolioDetailsSection = document.getElementById('portfolio-details');
   const spinnerElement = portfolioDetailsSection.querySelector('.spinner-border');
   spinnerElement.style.display = 'block';
 
-  await loadProjectBriefInformations('100001');
-  await loadMasterProjectDetails('100001');
+  await loadProjectBriefInformations(masterProjectId);
+  await loadMasterProjectDetails(masterProjectId);
 
   spinnerElement.style.display = 'none';
   const rowGy4Element = document.querySelector('.row.gy-4');
@@ -37,11 +37,11 @@ async function loadMasterProjectDetails(masterProjectId) {
 
   // Loop through MasterProjectMetaData to create elements
   masterProjectMetaDataList.forEach((metadata) => {
-    if (metadata.master_project_meta_data_type === MasterProjectMetaDataTypes.ScreenShot) {
+    if (metadata.master_project_meta_data_type === MasterProjectMetaDataType.ScreenShot) {
       // Create ImageSlide
       const imageSlide = createImageSlide(metadata.value);
       swiperWrapper.appendChild(imageSlide);
-    } else if (metadata.master_project_meta_data_type === MasterProjectMetaDataTypes.Video) {
+    } else if (metadata.master_project_meta_data_type === MasterProjectMetaDataType.Video) {
       // Create YouTube slide
       const youtubeSlide = createYouTubeSlide(metadata.value);
       swiperWrapper.appendChild(youtubeSlide);

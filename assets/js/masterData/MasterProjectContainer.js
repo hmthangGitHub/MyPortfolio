@@ -6,4 +6,9 @@ export class MasterProjectContainer  {
   getById(master_project_id) {
     return this.masterProjects.find(metaData => metaData.master_project_id === master_project_id);
   }
+
+  getAll()
+  {
+    return this.masterProjects;
+  }
 }

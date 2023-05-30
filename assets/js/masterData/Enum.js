@@ -1,4 +1,4 @@
-export const MasterProjectMetaDataTypes = {
+export const MasterProjectMetaDataType = {
   Thumbnail: 'Thumbnail',
   ScreenShot: 'ScreenShot',
   Video: 'Video'

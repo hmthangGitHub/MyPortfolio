@@ -1,9 +1,11 @@
 import { select, on } from "./common.js";
+import { MasterLoader } from "./masterData/MasterLoader.js";
+import { MasterProjectMetaDataType, MasterProjectCategoryType } from "./masterData/Enum.js";
 
-export function createPortfolioSection() {
+export async function createPortfolioSection() {
 	// Get the paragraph element inside the Portfolio section
 	customizePorfolioDescription();
-	createPortfolioItems();
+	await createPortfolioItems();
 	createPortfolioFilters();
     const portfolioLightbox = GLightbox({
 		selector: '.portfolio-lightbox'
@@ -35,9 +37,14 @@ function createPortfolioFilters() {
 
 		// Add the original filters
 		createFilter(portfolioFilters, portfolioFilterArray[0], '*', 'All');
-		createFilter(portfolioFilters, portfolioFilterArray[0], '.filter-app', 'App');
-		createFilter(portfolioFilters, portfolioFilterArray[0], '.filter-card', 'Card');
-		createFilter(portfolioFilters, portfolioFilterArray[0], '.filter-web', 'Web');
+		for (const key in MasterProjectCategoryType) {
+			if (MasterProjectCategoryType.hasOwnProperty(key)) {
+			  const value = MasterProjectCategoryType[key];
+			  const filterClass = `.filter-${key.toLowerCase()}`;
+			  const filterName = value;
+			  createFilter(portfolioFilters, portfolioFilterArray[0], filterClass, filterName);
+			}
+		}
 
 		// Set the first filter as active
 		portfolioFilterArray = select('#portfolio-flters li', true);
@@ -83,37 +90,63 @@ export function createFilter(container, template, dataFilter, name) {
 	container.appendChild(filter);
 }
 
-export function createPortfolioItem(container, template, imgSrc, title) {
+export function createPortfolioItem(container, template, imgSrc, projectName, projectId, category) {
 	const portfolioItem = template.cloneNode(true);
 	portfolioItem.style.visibility = "visible";
-	portfolioItem.classList.add("filter-app");
+	var filterClass = `.filter-${category.toLowerCase()}`;
+	portfolioItem.classList.add(filterClass);
 
 	const portfolioWrap = portfolioItem.querySelector(".portfolio-wrap");
 	const portfolioImg = portfolioWrap.querySelector("img");
 
 	portfolioImg.setAttribute("src", imgSrc);
 	portfolioImg.setAttribute("href", imgSrc);
-	portfolioImg.setAttribute("alt", title);
+	portfolioImg.setAttribute("alt", projectName);
 
 	const portfolioLinks = portfolioWrap.querySelector(".portfolio-links");
 	const lightboxLink = portfolioLinks.querySelector(".portfolio-lightbox");
 	lightboxLink.setAttribute("href", imgSrc);
-	lightboxLink.setAttribute("title", title);
+	lightboxLink.setAttribute("title", projectName);
 
 	const detailsLink = portfolioLinks.querySelector("[title='More Details']");
-	const detailsUrl = `portfolio-details.html?title=${encodeURIComponent(title)}`;
+	const detailsUrl = `portfolio-details.html?title=${encodeURIComponent(projectId)}`;
 	detailsLink.setAttribute("href", detailsUrl);
 
 	container.appendChild(portfolioItem);
 }
 
 
-function createPortfolioItems() {
+async function createPortfolioItems() {
 	const container = document.querySelector(".portfolio-container");
 	let template = container.querySelector('[class*="col-lg-4 col-md-6 portfolio-item"]');
-	createPortfolioItem(container, template, "assets/img/portfolio/portfolio-2.jpg", "App 10");
-	createPortfolioItem(container, template, "assets/img/portfolio/portfolio-2.jpg", "App 11");
-	createPortfolioItem(container, template, "assets/img/portfolio/portfolio-2.jpg", "App 12");
+	
+	// Load the MasterProjectContainer
+	const projectContainer = await MasterLoader.createInstance("MasterProjectContainer");
+	
+	// Get all projects from the container
+	const projects = await projectContainer.getAll();
+	
+	// Load the MasterProjectMetaDataContainer
+	const metaDataContainer = await MasterLoader.createInstance("MasterProjectMetaDataContainer");
+	
+	// Iterate over each project
+	for (const project of projects) {
+	  // Get the list of metadata for the project
+	  const metaDataList = metaDataContainer.getListByMasterProjectIndexer(project.master_project_id);
+	  
+	  // Find the first metadata item with type 'Thumbnail'
+	  const thumbnailMeta = metaDataList.find(meta => meta.master_project_meta_data_type === MasterProjectMetaDataType.Thumbnail);
+	  
+	  // Check if thumbnail metadata is found
+	  if (thumbnailMeta) {
+		// Get the image URL from the 'value' column
+		const imageUrl = thumbnailMeta.value;
+		
+		// Create a portfolio item with the image URL and other project details
+		createPortfolioItem(container, template, imageUrl, project.project_name, project.master_project_id, project.category);
+	  }
+	}
+	
 	template.style.display = "none";
 	template.remove();
-}
+  }
