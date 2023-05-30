@@ -1,0 +1,27 @@
+[
+  {
+    "master_skill_id": "1030001",
+    "label": "HTML",
+    "percentage": "60"
+  },
+  {
+    "master_skill_id": "1030002",
+    "label": "CSS",
+    "percentage": "70"
+  },
+  {
+    "master_skill_id": "1030003",
+    "label": "HTML3",
+    "percentage": "80"
+  },
+  {
+    "master_skill_id": "1030004",
+    "label": "HTML5",
+    "percentage": "90"
+  },
+  {
+    "master_skill_id": "1030005",
+    "label": "JAVASCRIPT",
+    "percentage": "100"
+  }
+]

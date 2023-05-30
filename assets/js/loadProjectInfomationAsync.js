@@ -2,7 +2,8 @@ import { MasterLoader } from './masterData/MasterLoader.js';
 import { MasterProjectMetaDataTypes } from './masterData/Enum.js';
 
 export async function loadProjectInfomationAsync(title) {
-  const spinnerElement = document.querySelector('.spinner-border');
+  const portfolioDetailsSection = document.getElementById('portfolio-details');
+  const spinnerElement = portfolioDetailsSection.querySelector('.spinner-border');
   spinnerElement.style.display = 'block';
 
   await loadProjectBriefInformations('100001');
@@ -10,7 +11,7 @@ export async function loadProjectInfomationAsync(title) {
 
   spinnerElement.style.display = 'none';
   const rowGy4Element = document.querySelector('.row.gy-4');
-  rowGy4Element.style.display = 'block';
+  rowGy4Element.style.visibility = 'visible';
 }
 
 async function loadProjectBriefInformations(masterProjectId) {

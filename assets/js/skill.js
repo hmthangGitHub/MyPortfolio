@@ -1,20 +1,9 @@
 import { select, on } from "./common.js";
-export function customizeSkills() {
+import { MasterLoader } from './masterData/MasterLoader.js';
+
+export async function customizeSkills() {
     customizeSkillDescription("Customized description for the Skills section.");
-    const skill1 = {
-        HTML: 100,
-        CSS: 90,
-        JavaScript: 75,
-    };
-
-    const skill2 = {
-        PHP: 80,
-        "WordPress/CMS": 90,
-        Photoshop: 55,
-    };
-
-    addSkills(skill1);
-    addSkills(skill2);
+    await loadAndAddSkills();
     addSkillAnimation();
 }
 
@@ -50,16 +39,51 @@ function addSkills(skills) {
     skillElement.setAttribute("data-aos", "fade-up");
     skillElement.setAttribute("data-aos-delay", "100");
   
-    for (const [skillName, percentage] of Object.entries(skills)) {
-      skillElement.innerHTML += `
+    for (const skill of skills) {
+      const { label, percentage } = skill; // Destructure the skill object properties
+  
+      const skillHtml = `
         <div class="progress">
-          <span class="skill">${skillName} <i class="val">${percentage}%</i></span>
+          <span class="skill">${label} <i class="val">${percentage}%</i></span>
           <div class="progress-bar-wrap">
             <div class="progress-bar" role="progressbar" aria-valuenow="${percentage}" aria-valuemin="0" aria-valuemax="100" style="width: ${0}%"></div>
           </div>
         </div>
       `;
+  
+      skillElement.innerHTML += skillHtml;
     }
   
     skillsContent.appendChild(skillElement);
+  }
+  
+
+
+  async function loadAndAddSkills() {
+    try {
+      // Load MasterSkillContainer
+      const masterSkillContainer = await MasterLoader.createInstance("MasterSkillContainer");
+  
+      // Get all MasterSkill data
+      const allSkills = await masterSkillContainer.getAll();
+  
+      // Calculate the number of skills for each category
+      const totalSkills = allSkills.length;
+      const category1Count = Math.ceil(totalSkills / 2);
+      const category2Count = totalSkills - category1Count;
+  
+      // Split the skills into two separate categories
+      const category1Skills = allSkills.slice(0, category1Count);
+      const category2Skills = allSkills.slice(category1Count, category1Count + category2Count);
+  
+      // Add skills to the corresponding categories using the addSkills function
+      addSkills(category1Skills);
+      addSkills(category2Skills);
+  
+      // Show the skills section after adding the skills
+    //   const skillsSection = document.querySelector("#skills");
+    //   skillsSection.style.display = "block";
+    } catch (error) {
+      console.error("Error loading skills:", error);
+    }
   }

@@ -1,5 +1,11 @@
 import { MasterProjectContainer } from './MasterProjectContainer.js';
 import { MasterProjectMetaDataContainer } from './MasterProjectMetaDataContainer.js';
+import { MasterPersonalInformationContainer } from './MasterPersonalInformationContainer.js';
+import { MasterSkillContainer } from './MasterSkillContainer.js';
+import { MasterResumeItemDetailContainer } from './MasterResumeItemDetailContainer.js';
+import { MasterResumeGroupContainer } from './MasterResumeGroupContainer.js';
+import { MasterResumeSectionItemContainer } from './MasterResumeSectionItemContainer.js';
+import { MasterResumeSectionGroupContainer } from './MasterResumeSectionGroupContainer.js';
 
 export class MasterLoader {
   static async createInstance(className) {
