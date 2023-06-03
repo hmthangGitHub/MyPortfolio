@@ -93,7 +93,7 @@ export function createFilter(container, template, dataFilter, name) {
 export function createPortfolioItem(container, template, imgSrc, projectName, projectId, category) {
 	const portfolioItem = template.cloneNode(true);
 	portfolioItem.style.visibility = "visible";
-	var filterClass = `.filter-${category.toLowerCase()}`;
+	var filterClass = `filter-${category.toLowerCase()}`;
 	portfolioItem.classList.add(filterClass);
 
 	const portfolioWrap = portfolioItem.querySelector(".portfolio-wrap");

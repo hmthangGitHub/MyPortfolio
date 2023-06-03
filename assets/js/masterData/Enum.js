@@ -8,4 +8,4 @@ export const MasterProjectCategoryType = {
   Mobile: 'Mobile',
   Web: 'Web',
   Personal: 'Personal'
-};
+};  
