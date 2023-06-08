@@ -5,7 +5,8 @@ export const MasterProjectMetaDataType = {
 };
 
 export const MasterProjectCategoryType = {
-  Mobile: 'Mobile',
-  Web: 'Web',
-  Personal: 'Personal'
-};  
+  unity: 'UNITY',
+  cpp: 'Cpp',
+  html5: 'HTML5',
+  Personal: 'PERSONAL'
+}; 

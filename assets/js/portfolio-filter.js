@@ -40,7 +40,7 @@ function createPortfolioFilters() {
 		for (const key in MasterProjectCategoryType) {
 			if (MasterProjectCategoryType.hasOwnProperty(key)) {
 			  const value = MasterProjectCategoryType[key];
-			  const filterClass = `.filter-${key.toLowerCase()}`;
+			  const filterClass = `.filter-${value.toLowerCase()}`;
 			  const filterName = value;
 			  createFilter(portfolioFilters, portfolioFilterArray[0], filterClass, filterName);
 			}

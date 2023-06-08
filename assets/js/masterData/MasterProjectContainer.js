@@ -1,6 +1,6 @@
 export class MasterProjectContainer  {
   constructor(masterProjects) {
-    this.masterProjects = masterProjects;
+    this.masterProjects = masterProjects.sort((a, b) => a.sort_order - b.sort_order);;
   }
 
   getById(master_project_id) {
