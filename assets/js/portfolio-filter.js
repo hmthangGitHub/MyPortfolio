@@ -73,7 +73,7 @@ function createPortfolioFilters() {
 				AOS.refresh();
 			});
 		console.log('Animation ended!');
-		}, 50);
+		}, 500);
 	}
 }
 
