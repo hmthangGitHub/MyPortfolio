@@ -63,7 +63,9 @@ function customizeProjectInfomations(projectName, category, projectDate, project
 
   // Customize Portfolio Description
   const portfolioDescriptionElement = document.querySelector('.portfolio-description p');
-  portfolioDescriptionElement.textContent = description;
+  let formattedDescription = description.replace(/\n/g, '<br>');
+  formattedDescription = description.replace(/\\n/g, '<br>');
+  portfolioDescriptionElement.innerHTML = formattedDescription;
 }
 
 function createYouTubeSlide(videoId) {

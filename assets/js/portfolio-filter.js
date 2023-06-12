@@ -17,7 +17,7 @@ function customizePorfolioDescription() {
 	const paragraphElement = portfolioSection.querySelector('.section-title p');
 
 	// Update the content of the paragraph element
-	paragraphElement.textContent = 'Your custom content goes here';
+	paragraphElement.textContent = 'Welcome to my portfolio! Explore a collection of my notable projects and creations that showcase my skills and expertise';
 }
 
 function createPortfolioFilters() {

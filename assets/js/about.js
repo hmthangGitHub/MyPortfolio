@@ -1,10 +1,10 @@
 export function customizeAbout() {
   customizeAboutSection("I am a passionate game developer with a strong background in programming and design. I specialize in creating immersive and interactive gaming experiences that captivate players. With my expertise in game engines, scripting languages, and game development frameworks, I bring ideas to life and deliver engaging gameplay mechanics. I strive to create unique and innovative games that leave a lasting impression on players. Let's embark on an exciting gaming journey together!");
-  customizeAboutRole("Game developer");
-  customizeLoremIpsum("Customized Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
+  customizeAboutRole("Personal Information");
+  customizeLoremIpsum("");
   customizeDetailAboutSection();
-  customizeParagraph("Customized paragraph text goes here.");
-  customizeFactsSection("Customized Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque dapibus magna in vehicula eleifend.");
+  customizeParagraph("");
+  customizeFactsSection("I have been playing DotA for over a decade now, and an interesting quirk of mine is that I enjoy solving a Rubik's Cube while I'm dead to keep myself from blaming my teammate.");
 }
 
 export function customizeAboutSection(description) {
@@ -57,9 +57,9 @@ export function customizeDetailAboutSection() {
   };
   
   const secondList = {
-    "Age:": "30",
+    "Age:": "28",
     "Degree:": "Engineer",
-  "Email:": "hoangmanhthang795@gmail.com",
+    "Email:": "hoangmanhthang795@gmail.com",
   };
   
   createAboutList(firstList);
