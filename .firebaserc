@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "hoangmanhthang795-2ab5c"
-  }
+    "default": "hoangmanhthang795-2ab5c",
+    "HoangManhThangPortfolio": "hoangmanhthang0795"
+  },
+  "targets": {},
+  "etags": {}
 }

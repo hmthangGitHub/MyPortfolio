@@ -33,5 +33,26 @@
     "header": "GameLoft",
     "sub_header": "2017 - 2019",
     "description": "Junior"
+  },
+  {
+    "master_resume_section_item_id": "1050008",
+    "master_resume_section_group_id": "1070004",
+    "header": "Mr. HUYNH THIEN THANH",
+    "sub_header": "Grevo",
+    "description": "Native Game Department Manager"
+  },
+  {
+    "master_resume_section_item_id": "1050009",
+    "master_resume_section_group_id": "1070004",
+    "header": "Mr. NGUYEN DUC HOANG",
+    "sub_header": "goGame",
+    "description": "Technical Lead"
+  },
+  {
+    "master_resume_section_item_id": "1050010",
+    "master_resume_section_group_id": "1070004",
+    "header": "Mr. Minh",
+    "sub_header": "GameLoft",
+    "description": "Technical Lead"
   }
 ]

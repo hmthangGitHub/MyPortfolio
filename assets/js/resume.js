@@ -1,6 +1,6 @@
 import { MasterLoader } from './masterData/MasterLoader.js';
 export async function customizeResume() {
-  const newDescription = "The following is a condensed version of my comprehensive resume, highlighting my experience as a Software Engineering major specialized in game development. For a detailed overview of my qualifications, please refer to the";
+  const newDescription = "The following is a condensed version of my comprehensive resume, highlighting my experience as a Software Engineering major specialized in game development. For a detailed overview of my qualifications, please refer to the ";
   customizeResumeDescription(newDescription, "complete resume", "assets/resume/Hoang-Manh-Thang.pdf");
   let resumeData = await generateResumeData();
   // Loop through the sections and call createResumeSection for each section
@@ -77,7 +77,7 @@ function customizeResumeDescription(description, linkText, resumeLink) {
   linkElement.href = resumeLink;
 
   // Append the link element to the description
-  descriptionElement.textContent = description + " For a detailed overview of my qualifications, please refer to the ";
+  descriptionElement.textContent = description;
   descriptionElement.appendChild(linkElement);
   descriptionElement.innerHTML += "."; // Add a period at the end
 }

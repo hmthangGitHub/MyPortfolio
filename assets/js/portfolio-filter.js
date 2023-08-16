@@ -72,8 +72,8 @@ function createPortfolioFilters() {
 			portfolioIsotope.on('arrangeComplete', function () {
 				AOS.refresh();
 			});
-		console.log('Animation ended!');
-		}, 500);
+			console.log('Animation ended!');
+		}, 1500);
 	}
 }
 
@@ -98,10 +98,20 @@ export function createPortfolioItem(container, template, imgSrc, projectName, pr
 
 	const portfolioWrap = portfolioItem.querySelector(".portfolio-wrap");
 	const portfolioImg = portfolioWrap.querySelector("img");
+	const placeHolderImage = portfolioWrap.querySelectorAll("img")[1];
 
+	portfolioImg.style.display = 'none';
 	portfolioImg.setAttribute("src", imgSrc);
 	portfolioImg.setAttribute("href", imgSrc);
 	portfolioImg.setAttribute("alt", projectName);
+
+	portfolioImg.onload = function() {
+		console.log('Image has finished loading ' + imgSrc);
+		// You can perform any actions here that require the image to be fully loaded
+		placeHolderImage.style.display = 'none';
+		portfolioImg.style.display = 'block';
+	};
+	
 
 	const portfolioLinks = portfolioWrap.querySelector(".portfolio-links");
 	const lightboxLink = portfolioLinks.querySelector(".portfolio-lightbox");

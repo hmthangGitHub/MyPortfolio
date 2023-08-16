@@ -2,7 +2,12 @@
   {
     "master_resume_section_group_id": "1070002",
     "master_resume_group_id": "1040001",
-    "header": "EDUCATION"
+    "header": "EDUCATIONS & INFORMATIONS"
+  },
+  {
+    "master_resume_section_group_id": "1070004",
+    "master_resume_group_id": "1040001",
+    "header": "REFERENCES"
   },
   {
     "master_resume_section_group_id": "1070003",

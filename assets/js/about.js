@@ -4,7 +4,7 @@ export function customizeAbout() {
   customizeLoremIpsum("");
   customizeDetailAboutSection();
   customizeParagraph("");
-  customizeFactsSection("I have been playing DotA for over a decade now, and an interesting quirk of mine is that I enjoy solving a Rubik's Cube while I'm dead to keep myself from blaming my teammate.");
+  customizeFactsSection("I have been playing DotA for over a decade now, I enjoy solving a Rubik's Cube while I'm dead to keep myself from blaming my teammate.");
 }
 
 export function customizeAboutSection(description) {

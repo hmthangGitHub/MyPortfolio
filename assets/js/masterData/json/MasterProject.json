@@ -142,5 +142,14 @@
     "url": "N/A",
     "description": "<strong>VIPER</strong> is a thrilling multiplayer snake game that offers a variety of game modes and a wide selection of skins to customize your snake\\n\\n<strong>MY ROLE</strong>: As a developer, my role was to bring the game design to life\\n\\n<strong>TECHNOLOGY</strong>: Built using Unity 2020.3f LTS and leveraging the capabilities of C# 8, Asynchronous programming with UniTask, TCP/UDP socket programming enables real-time communication between players, Flatbuffer serialization optimizes data transmission and storage efficiency.",
     "sort_order": "2"
+  },
+  {
+    "master_project_id": "100017",
+    "project_name": "Unity Visual Effect",
+    "category": "PERSONAL",
+    "date": "2022",
+    "url": "N/A",
+    "description": "<strong>UNITY VFX</strong> is a small-scale project that showcases my knowledge for Shader Graph, HLSL, and scriptable rendering features",
+    "sort_order": "2"
   }
 ]

@@ -1,7 +1,8 @@
 export const MasterProjectMetaDataType = {
   Thumbnail: 'Thumbnail',
   ScreenShot: 'ScreenShot',
-  Video: 'Video'
+  Video: 'Video',
+  Html5: 'Html5',
 };
 
 export const MasterProjectCategoryType = {

@@ -45,6 +45,10 @@ async function loadMasterProjectDetails(masterProjectId) {
       // Create YouTube slide
       const youtubeSlide = createYouTubeSlide(metadata.value);
       swiperWrapper.appendChild(youtubeSlide);
+    } else if (metadata.master_project_meta_data_type === MasterProjectMetaDataType.Html5) {
+      // Create YouTube slide
+      const html5Game = createHtml5Game(metadata.value);
+      swiperWrapper.appendChild(html5Game);
     }
   });
 }
@@ -104,6 +108,31 @@ function createImageSlide(imageSrc) {
   imageElement.alt = '';
 
   slideContainer.appendChild(imageElement);
+
+  return slideContainer;
+}
+
+function createHtml5Game(gameSrc) {
+  const slideContainer = document.createElement('div');
+  slideContainer.classList.add('swiper-slide');
+
+  const gameContainer = document.createElement('div');
+  gameContainer.style.position = 'relative';
+  gameContainer.style.width = '100%';
+  gameContainer.style.paddingBottom = '56.25%';
+
+  const iframeElement = document.createElement('iframe');
+  iframeElement.src = gameSrc;
+  iframeElement.frameBorder = '0';
+  iframeElement.allowFullscreen = true;
+  iframeElement.style.position = 'absolute';
+  iframeElement.style.top = '0px';
+  iframeElement.style.left = '0px';
+  iframeElement.style.width = '100%';
+  iframeElement.style.height = '100%';
+
+  gameContainer.appendChild(iframeElement);
+  slideContainer.appendChild(gameContainer);
 
   return slideContainer;
 }
