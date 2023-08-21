@@ -87,7 +87,7 @@
   {
     "master_resume_detail_id": "1060018",
     "master_resume_section_item_id": "1050008",
-    "detail": "LinkedIn : https://www.linkedin.com/in/thanh-huynh-90376644/"
+    "detail": "LinkedIn Profile : https://www.linkedin.com/in/thanh-huynh-90376644/"
   },
   {
     "master_resume_detail_id": "1060019",
@@ -102,11 +102,26 @@
   {
     "master_resume_detail_id": "1060021",
     "master_resume_section_item_id": "1050009",
-    "detail": "LinkedIn : https://www.linkedin.com/in/duc-hoang-nguyen/"
+    "detail": "LinkedIn Profile : https://www.linkedin.com/in/duc-hoang-nguyen/"
   },
   {
     "master_resume_detail_id": "1060022",
     "master_resume_section_item_id": "1050010",
     "detail": "SkypeID :  minhitkhtn"
+  },
+  {
+    "master_resume_detail_id": "1060023",
+    "master_resume_section_item_id": "1050010",
+    "detail": "Email : minhdangphamthe@gmail.com"
+  },
+  {
+    "master_resume_detail_id": "1060024",
+    "master_resume_section_item_id": "1050010",
+    "detail": "Phone No : +84906669903"
+  },
+  {
+    "master_resume_detail_id": "1060025",
+    "master_resume_section_item_id": "1050010",
+    "detail": "LinkedIn Profile : https://www.linkedin.com/in/minh-dang-56624790/"
   }
 ]
